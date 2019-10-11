@@ -1,16 +1,7 @@
 ﻿@model RegisterViewModel
+
 @{
-    ViewData["Title"] = "Register";
-    <style>
-        .fixed-top {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1030;
-            display: none;
-        }
-    </style>
+    ViewData["Title"] = "RegisterAdmin";
 }
 
 <div class="container-fluid containerBackground">
@@ -42,7 +33,7 @@
                         </div>
                         <br />
                         <div class="form-group padding-form" style="padding-top: 0px;">
-                            <a class="btn btn-warning btn_RegisterLogin" href="@Url.Action("Login","Account")" ><i class="fas fa-sign-in-alt"></i></a>
+                            <a class="btn btn-warning btn_RegisterLogin" href="@Url.Action("Login","Account")"><i class="fas fa-sign-in-alt"></i></a>
                             <a class="btn btn-primary btn_RegisterLogin" href="https://www.facebook.com/ahmed.daoud191" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn_RegisterLogin" href="mailto:ahmeddaoud19@yandex.com"><i class="fas fa-envelope"></i></a>
                             <a class="btn btn-danger btn_RegisterLogin" href="https://www.youtube.com/channel/UCXzGoh84rwz8tfONjQ0w6mw/" target="_blank"><i class="fab fa-youtube"></i></a>

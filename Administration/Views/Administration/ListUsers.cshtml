@@ -2,11 +2,6 @@
 
 @{
     ViewData["Title"] = "All List";
-    <style>
-        .paddingCard {
-            padding: 10px 0px;
-        }
-    </style>
 }
 <div class="container">
     <br />
@@ -15,7 +10,7 @@
     <h1> All Users </h1>
     @if (Model.Any())
     {
-        <a asp-action="Register" asp-controller="Account" class="btn bnt-primary mb-3" style="width:auto">
+        <a asp-action="RegisterAdmin" asp-controller="Account" class="btn bnt-primary mb-3" style="width:auto">
             Ajouter Nouveau utilisateur
         </a>
         foreach (var user in Model)
