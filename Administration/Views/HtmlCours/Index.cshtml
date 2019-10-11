@@ -1,4 +1,5 @@
 ﻿@model PaginatedList<Administration.Models.HtmlCours>
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
     ViewData["Title"] = "Index";
@@ -24,64 +25,65 @@
                         <input type="text" name="SearchString" value="@ViewData["currentFilter"]" style="width:100%; padding: .300rem .50rem;">
                     </div>
                     <div class="col-md-2 col-2">
-                        <button type="submit" class="btn btn-outline-success"><i class="fas fa-search-plus"></i></button>
-                        <a asp-action="Create" class="btn btn-outline-danger">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <button type="submit" class="btn btn-outline-success"><i class="fas fa-search-plus"></i></button>
+                            <a asp-action="Create" class="btn btn-outline-danger">
+                                <i class="fas fa-user-plus"></i>
+                            </a>
+                        }
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Etudiant"))
+                        {
+                            <button type="submit" class="btn btn-outline-success" style="width:100%"><i class="fas fa-search-plus"></i></button>
+                            
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </form>
     <br />
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" style="text-decoration:none; color:lightseagreen;">@*@Html.DisplayNameFor(model => model.FullName)*@ Nom </a>
-                </th>
-                <th>
-                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" style="text-decoration:none;color:lightseagreen;">@*@Html.DisplayNameFor(model => model.DateBirthday)*@ Date Ajout</a>
-                </th>
-                <th>
-                    Téléchargement
-                </th>
-
-                <th>
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+    <div class="row">
+        @if (Model.Any())
+        {
+            foreach (var HtmlCours1 in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nom)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateAjout)
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-warning" onclick="document.location='@item.UrlFiche'">
-                            Télécharger
-                        </button>
-                    </td>
-                    <td>
-                        <a style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.Id">
-                            <i class="fas fa-edit icontable"></i>
-                        </a> |
-                        <a style="text-decoration:none;" asp-action="Details" asp-route-id="@item.Id">
-                            <i class="fas fa-info-circle icontable"></i>
-                        </a> |
-                        <a style="text-decoration:none;" asp-action="Delete" asp-route-id="@item.Id">
-                            <i class="fas fa-trash-alt icontable"></i>
-                        </a>
-                    </td>
-                </tr>
+                <div class="paddingCard">
+                    <div class="card card2">
+                        <div class="card-header card-header2">
+                            Nom : @HtmlCours1.Nom
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                <span style="font-size:18px; font-weight:bold;">Description :</span> @HtmlCours1.Description
+                            </p>
+                            <p class="card-title">
+                                <span style="font-size:18px; font-weight:bold;">Téléchargement :</span> <button type="button" class="btn btn-outline-warning" onclick="document.location='@HtmlCours1.UrlFiche'">Télécharger</button>
+                            </p>
+                        </div>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <div class="card-footer">
+                                <form asp-action="Edit" asp-route-id="@HtmlCours1.Id" method="post">
+                                    <a class="btn btn-outline-success" asp-action="Edit" asp-controller="HtmlCours" asp-route-id="@HtmlCours1.Id">
+                                        Edit
+                                    </a>
+                                    <button asp-action="Delete" asp-controller="HtmlCours" asp-route-id="@HtmlCours1.Id" type="submit" class="btn btn-outline-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        }
+        else
+        {
+
+        }
+    </div>
+
     @{
         var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
         var nextDisabled = !Model.HasNextPage ? "disabled" : "";
