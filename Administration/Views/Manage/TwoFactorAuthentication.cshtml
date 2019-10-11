@@ -2,11 +2,6 @@
 @{
     ViewData["Title"] = "Two-factor authentication";
     ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
-    <style>
-        .box-shadow-button {
-            box-shadow: 0 19px 38px rgba(0,0,0,.1), 0 5px 13PX rgba(0,0,0,.5);
-        }
-    </style>
 }
     <div class="col-md-12 box-shadow-button">
         @if (Model.Is2faEnabled)
