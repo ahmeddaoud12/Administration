@@ -1,0 +1,290 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+    <style>
+        .iconfont {
+            font-size: 70px;
+        }
+
+        .cardCenter {
+            text-align: center;
+            width: 100%;
+        }
+        .cardShadow {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    </style>
+}
+<div class="container">
+    <br />
+    <br />
+    <br />
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+    {
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFAi2RiAYoIoZ15FxAzEi1DRiDsG7n7ReFk_w7b3dQvWY9Ryomg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML 5</h5>
+                        <p class="card-text">
+                            HTML5 est la dernière révision majeure du HTML (format de données conçu pour représenter les pages web).
+                        </p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTEhMVFRUWGBcTFRcSFRsYExUVFxoWFhgSFxUYHSggGBolGxcXITEhJSkrLi4uFx8zODMtNzQtLisBCgoKDg0OGhAQGi0mICYtLS0uLS0tLS0vLy03KysvKy0rLS0tLSstLSs3Ny8rLS0tLS0rLS4tLi0tLS0tLS0tNf/AABEIAKgBLAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQMCBAYFB//EAEYQAAIBAgIFCgMEBwQLAAAAAAABAgMRITEEEkFRYQUGEyJxgZGhscEHUvAyQpLRFCNTYnLS4WOissIVFhczQ1SDo9Pi8f/EABoBAQADAQEBAAAAAAAAAAAAAAABAgYEBQP/xAAvEQEAAgIAAwYEBQUAAAAAAAAAARECAwQSIQUxQVFxoRNhgfAUIiOxwQYyQpHh/9oADAMBAAIRAxEAPwCAAaJmQAAAAAAAAAAAAAAAAAAAAAAAAA1uU9J6OjUne2rGT77YediJmotMRc1D5fy1pkqlerNN2c2l2LqrySNXr734kOmsFr4be3H8vMzsvnfYZ+Z5pmZaSI5YiIY9fe/Hd/8ASevvfjxS9yY2v9t/VvXDwCt87+mn7Iii0LX3vxIlKazb2bd97ejJVr/bf1f67ydVZOV8vSX9PEjqtcMJzksG3s81cx6WW9l/RQf39mGG5K31wKqkIq9ne1+/7NvV+AGPSy3sdLLezAAZ9LLex0st7MABn0st7HSy3swAGfSy3sdLLezAAfaQAaNmAAAAAAAAAAAAAAAAAAAAAAAAA5zn7pGro2os6k4x7l13/hXidGcPz+rRlVp03K2rHW/G7ekfM5+Ky5dUunhMObdH+3IRpt5fX1Yl0n9NbDOEV89uy5Ltb7T27f3X74d54r3b6q+ie7iS6TulvbXenYswbac2lbB3bvlmZzhD9o2+zje4Gq0QW09Vt6zeN8V+RNWEUurK/CxFpUgvVOHzW89i97+BhUjH7ry2vblku/yFisF8KcLJuW6678fIdFC328cL4bcb2AoBmoq2ePHda/iZKEdW7lju77d28CoGx0UPn8tl/wAvUrpxW1kisFurG+eFnjxs/wChZSoweckstq3JvPjfwIH2AAGjZgAAAAAAAAAAAAAAAAAAHhcpc5oUasqbpybjbFNWd4qXuX8i8uR0iUoxg46qTxad7u2w5vlmtGGnylOOtFODkrJ3XRwws8GdFyFyjQqykqNLUaSbepGN03l1WcOvdlltmJy8Zinft04Y6oyjHwibtq6TzshCc4dFJ6spQvdY6rav5Ho8j8rR0iMpRi46rtZtO+F9hx3OKpRdaTpKUZKclUTS1XJNpzjjta3Y57zp+a2mqpSk9SMXF2lqRSU8L61ltsRp3Z5bZxnJO7RhjqjKMWmuecP2U/xI4zl7TunrzqWaTskm8lFKNvLzN/S69JVFUoJxj9rVqRi1Hgldpx4M8iUYO71u3D0w7Ti3b88o5cpv0d2nRhhPNjFKEDOcY3wd12EwUdrs/b69D4OlWC1xjv7O3wMlCHzbd2y/5E0i1ALEleN8vveL9rFZCQAAAAAAAAAAAAB9pBZ0XEdFxNHTMXCsFnRcR0XEUXCsFnRcR0XEUXCsFnRcR0XEUXCsFnRcR0XEUXCsFnRcR0XEUXCsFnRcR0XEUXCmdRLNpdrsYfpMPnj+JGty5TtCL/et4p/keMTEPrhhGUW9qrQ0eTcpRoyk83JRbdsMW+CMtHhQhdwVKLeerqq/bY8MEfDxu6X5JqrexPRtGbbcKLbbbbUbtvFtveW0OhgmodHFPNR1Un22PH0ajryUU7X39jZv/wChJfNHwY+HjHVXLp0nJ5/OLRKfQSWj0YTqNxSVGmpSSum5WirpWVr8TkY8maV/ydZ/9Ge+/wAp9U5B5KcHJuSd7JW4Yv1XgdBT0Z70Y/tbtWNPE5a8YjpX7W0nZ3CRlojKcp6vg8uStJgnKWi1lFdaTlSmopK9221gjWVKdvs71g1ti4n2nnlU1NB0l/2co/i6vufDeke9+LJ4LisuIwnKYrq+nEaI1ZRESvnNptOKus77tgV8Ore+WK37d2w1228/MnXe9+Pedtueobapz/ZrNPNLK/Hia6lZ3st1uO33Mell8z8WYEJjot1msbZrV4/Z1bmCiRcKT3kg0QS2QQAAAAAAAAPuIBEsjSsqkFFxci1qXgouLiyl4KLi4speCi4uLKXgwpMzJVAUyeJFyLWpr8tx/VdjT9vc589/lLGnLufg0eAWh0av7XV6LzB0mpCM41KGrOMZq8p3tJJr7nEuXw40v9pQ/HP/AMZ6vIXPjRqWj0aVRVdaEIwerBNdVWVnrbkj0P8AaJoe6t+BfzHnZbeKiZiI9noxhorrPu8Pk/4d6VGpGTqULK+Up3ya+Q9r/UnSPno/il/Ie9yDzgjpLXRUa+q/vzgowyzTcut3XOgm9VOTySbfYsT4ZcZuxmsqW/B6c+rhqXN6pTi7yg9W7eq3jbHC6K6aOspRve+3PvOU1bX4X8jF9t6Yx2RsjvymZn16Pc4GfycnhFRDjviRUtyfV/edOP8Afi/Y+MH1z4p1UtEgnlKtFPuhUl6pHyrUhb7T+u49LsqK0esz/D58bP6n0UAm2Ba1De/ruPVckqQWpR3/AFjw7PEm0N77+yXvYItSDPDV438rYe5gQkBNiAAAAAAAAAPuJEsmSRLJmlZVQACq4AAAAAAACykWFdIsJhWVEsyCZZkELKtLV4S/hfoc6dNNXTW9WOZRbF99Xi6bmxzOqaXFVHUhTpXavZym2s7RVl3t9x9C5G5naHo9mo9JNffrdZ33qNtWPcrnK8xecujaPozp16mpLpJNLUnLqtRxvGLWesdIue+gft/+1V/kPL4jLiMspxiJr5Q9PTGmMYmZi3U07J3WLWxZvDLHA8fljS9MmnCNBQpyvGUpTg5tNZJKVo+ZraLz00GUklXxf9nU3P8AcN6py7QqWUKl8flkscksUcO3CcdeXxIqJirnpV9PT0t0RlGWURjl176iuv8ALTofpe5f3fzPM0i/W1s7u/bfHzOwoI47SpX1nvbfizL9raPhcn58puZ75vyetwmfNM9Ij0fNfi1pWrT0eFk9aVSVpK66sYr/ADnzl6dJ4tRbzvbE7b4v1P1ujx3QnL8Uor/KcA0ev2bFcNj9f3lzcVN7Z+/BbUr3xaWd1uWSy7iOn4L6dyoHe5ly0h7ls2biY6S9qT+sigIWVC56Q9y9tmzuJekvcvAoAsqF/wCkcPq6lbyRQAQkBKQaAgAAAAB9xIlkySJZM0rKqAAVXAAAAAAAAWUiwrpFhMKyolmQTLMghYOaqKza3No6U57S1acv4n6k4vrq8XT8w+QKGlKt0yk3BwtqyccJa1/8Jbz75tUNFp0p0VJa03GWtJy2XXoy74U1LVq8fmhBpb9WT/mPoHKPJlKvHUrU1OKd0nfB4q6axTs2edu35a+I6zNeX0err1Rnq7uv/XxLkr/ew7/Rne8g0utDjNPzX5Hpx+Hui9JGcJVadr9VSUo2s/mTa8T2eTeS6VO2rHFZOTu+3dc4u1svxWrHXrn/ACiZvyjwX4PVOrbOeXlUer1k7Rb3Js4qv9k7LTHalN/uy9DjdJyRl+28r268flP37Pa4GOky+SfEuvL9MSjq9WlBdbi6svY42WjTzssrZrYt187I934i1XLlCslfqqnFW4QjL1bOZ1nvZ7XBxWjCPlDk3z+pl6slNrC3iZUq7jeyWNs+G4rxe9+ZDOh87ldHSGm3ZYtPbmm3vM5aW2rWj55WtbPtNYIIbE9Lk1kl2LLsInpLdsFg77c733lBKW4C9aW/ljjvV8Lt2zyxM/0+V72jhlg8PM1CbAWz0hvYsrYYbGvfyK6k7u5jcmz3AQAAAAA+4kSyZJEsmaVlVAAKrgAAAAAAALKRYV0iwmFZUSzIJlmQQsHg8pL9ZLufkj3jQ03k9zlrJ2e5r3Jh9NcxE9Xj+2K4Pee1ydzr0yjbVrSkl92r114yxXc0edU0Covu3/hx8szXatmMsccoqYt0Y511xl9G5F+Ic6klTqUFrSTSlTk1G9m8YtOyw3nsf6YqvK0VwWPiz51zWh+tlL5Y275P8kzroV3sRhf6g3Z6+J+FpmoiIuvOffupo+zdfPq58+vX2enKpKWMm5drv6lGlPI8HlLnRotG/S6RBNfdi9aX4IXaOa074m0VdUaU5vY6nUj22V3bwPC1cDv2TzREz9+cvSnbr198uQ53VJS06u7xS6Sy46utFJ27H5HlT6S2Kis8v4XhhwuRp2kwqVZ1HducnNrGycnKUuObVsSl9Hscu/sdtm+xsNePLhGPlEPHym8pli09Zpuz252fA2LzTyWN7Z/Njtwxkaqcb5XXbj2mV4Peu++3Z3X8S0qrYznF2w615b1h2dhlNVGsktzWBRLVwt3t3w7MMTGnq/ev3EUM3eLurXtkruysnf63l8JzlZpR38XZ7d+K9Si8OO3Hfw7DGersv39q/qTEjaaqP5djaTax1nZPHF3T+rGvaUMb7t9sU9nczGOrbG9+G3PD0J6nHZn332FqRbYjObXV1Wssnu4lSpSV27O6eLezDHfkVT1bYN38jJuPd35YW78ytUmOrHUu5W2YpLi0rK/aisubik9Vu/vde1zB2w7Md97v2sSMAZ9XiFq8Qnl+b7cRLJkg0rKNcF+qtw1VuIpa1AL9VbhqrcKLUAv1VuGqtwotQC/VW4aq3Ci2FIsCQJQolmQTLMgqsAAAYzgnmk+1XMgBx/OHnJU0StKlo+olqxcnKOs1J3yx3Ww4ngco8oaXXTVWrKS2rWai8F9xWjv2Gry/pKqV6s1tm0v4Y9VPwSNBSedzO7sMMt2WyouZ72k0zljqxwvwXvQpLdtyx2pe5jV0eUVd27nxsUghdlKNrcVcxAAAAAAAAAAAAAAAAAAAAD7iARLJmlZVGuhropBFrUu10NdFIFlLtdDXRSBZS7XQ10UgWUvTJK6RYSiVEsyCZZkFVgAADV5U0no6NSp8sJSXbbDzsbRz3PnSVHRtV/8AElGOG5dd/wCFLvPnty5cJl9NWPNnGPzfNkSW9Tj75PD0Jk4bmeDTRWpBf1OP1b+pEtTG1/p/kCJUgzlbZcvi6TzTXmrb+0haYpqg2m6VnZS4X2EQlS2p7cPTHeENYG1eljhLhwxMLw47PRr1swKAXt08bJ7bX7MPP1Mr0+OePZdPfuuu8DWBs3pbpfTyzMG4d2H+b/1ApAAAAAAAB9xIlkwDSsqoABVcAAAAAAABZSLACYVlRLMgAhNgABYcH8RdJvVpU/li5vtm7Lyj5gHJxs1qdvAxe5ySAB472wAAAAAAAAAAAAAAAAAAAAAAAH//2Q==" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">
+                            Les feuilles de style en cascade, généralement appelées CSS de l'anglais Cascading Style Sheets.
+                        </p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">JQuery</h5>
+                        <p class="card-text">
+                            jQuery est une bibliothèque JavaScript libre et multiplateforme créée pour faciliter l'écriture de scripts côté client dans HTML
+                        </p>
+                        <a href="#" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkXtpa2MbRZXfF9k-ungVyIInaysvULq18TwtagVK6om8DkcFL" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Roles Administration</h5>
+                        <p class="card-text">
+                            Les vérifications d’autorisation basée sur les rôles sont déclaratives le développeur les incorpore dans son code.
+                        </p>
+                        <a href="#" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="https://www.valuebound.com/sites/default/files/managing-user-roles-permission-drupal-8.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Utilisateur</h5>
+                        <p class="card-text">
+                            ASP.NET Core identity qui ajoute des fonctionnalités de connexion aux applications ASP.NET Core.
+                        </p>
+                        <a href="#" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Etudiant"))
+    {
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFAi2RiAYoIoZ15FxAzEi1DRiDsG7n7ReFk_w7b3dQvWY9Ryomg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML 5</h5>
+                        <p class="card-text">
+                            HTML5 est la dernière révision majeure du HTML (format de données conçu pour représenter les pages web).
+                        </p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">
+                            Les feuilles de style en cascade, généralement appelées CSS de l'anglais Cascading Style Sheets.
+                        </p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 paddingindex1">
+                <div class="card cardShadow">
+                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">JQuery</h5>
+                        <p class="card-text">
+                            jQuery est une bibliothèque JavaScript libre et multiplateforme créée pour faciliter l'écriture de scripts côté client dans HTML
+                        </p>
+                        <a href="#" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Learn how to build ASP.NET apps that can run anywhere.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        There are powerful new features in Visual Studio for building modern web apps.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Application uses</h2>
+            <ul>
+                <li>Sample pages using ASP.NET Core MVC</li>
+                <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>How to</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Overview</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Run &amp; Deploy</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+            </ul>
+        </div>
+    </div>*@
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title cardCenter" id="exampleModalLongTitle">
+                    HTML 5
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="@Url.Action("Index","HtmlCours")" class="btn btn-primary" target="_blank" style="width:100%;   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Cours</a>
+                </div>
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="#" class="btn btn-primary" style="width:100%;   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">exercices</a>
+                </div>
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="#" class="btn btn-primary" style="width:100% ;  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Examen</a>
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title cardCenter" id="exampleModalLongTitle">
+                    CSS 3
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="#" class="btn btn-primary" style="width:100%;   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Cours</a>
+                </div>
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="#" class="btn btn-primary" style="width:100%;   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">exercices</a>
+                </div>
+                <div style="padding-bottom:5px; padding-top:5px;">
+                    <a href="#" class="btn btn-primary" style="width:100% ;  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">Examen</a>
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>

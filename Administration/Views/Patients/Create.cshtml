@@ -1,0 +1,112 @@
+﻿@model Administration.Models.Patient
+
+@{
+    ViewData["Title"] = "Create";
+    <style>
+        .paddingCard {
+            padding: 10px 0px;
+        }
+    </style>
+}
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <center>
+        <h2>Ajouter Patient</h2>
+
+    </center>
+    <hr />
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-12 col-12">
+                <div class="paddingCard">
+                    <div class="card card2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="FullName" class="control-label"></label>
+                                        <input asp-for="FullName" class="form-control" />
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Gender" class="control-label"></label>
+                                        <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control"></select>
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="DateBirthday" class="control-label"></label>
+                                        <input asp-for="DateBirthday" class="form-control" />
+                                        <span asp-validation-for="DateBirthday" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="email" class="control-label"></label>
+                                        <input asp-for="email" class="form-control" />
+                                        <span asp-validation-for="email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-12">
+                <div class="paddingCard">
+                    <div class="card card2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Address" class="control-label"></label>
+                                        <textarea asp-for="Address" class="form-control" rows="6" ></textarea>
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Phone" class="control-label"></label>
+                                        <input asp-for="Phone" class="form-control" />
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Fax" class="control-label"></label>
+                                        <input asp-for="Fax" class="form-control" />
+                                        <span asp-validation-for="Fax" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Fonction" class="control-label"></label>
+                                        <select asp-for="Fonction" asp-items="Html.GetEnumSelectList<Fonction>()" class="form-control"></select>
+                                        <span asp-validation-for="Fonction" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+            <center>
+                <div class="col-md-4 col-12 form-group paddingCard ">
+                    <input type="submit" value="Create" class="btn btn-primary card2" style="width: 100%;"/>
+                </div>
+            </center>
+           
+        </form>
+    </div>
+</div>
+
+

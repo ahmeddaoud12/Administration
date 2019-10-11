@@ -1,0 +1,107 @@
+﻿@model PaginatedList<Administration.Models.Patient>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <center>
+        <h2>
+            Liste des Patients
+        </h2>
+    </center>
+    <br />
+    <form asp-controller="Patients" asp-action="Index">
+        <div class="row">
+            <div class="col-md-2 col-6" style="padding-right: 0px;    padding-top: 5px;">
+                Nom & prénom :
+            </div>
+            <div class="col-md-10 col-6" style="padding-left: 0px;">
+                <div class="row">
+                    <div class="col-md-10 col-10">
+                        <input type="text" name="SearchString" value="@ViewData["currentFilter"]" style="width:100%; padding: .300rem .50rem;">
+                    </div>
+                    <div class="col-md-2 col-2">
+                        <button type="submit" class="btn btn-outline-success"><i class="fas fa-search-plus"></i></button>
+                        <a asp-action="Create" class="btn btn-outline-danger">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br />
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" style="text-decoration:none; color:lightseagreen;">@*@Html.DisplayNameFor(model => model.FullName)*@ Nom &amp; Prénom</a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Address)*@ Addresse
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" style="text-decoration:none;color:lightseagreen;">@*@Html.DisplayNameFor(model => model.DateBirthday)*@ DateBirthday</a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Phone)*@ Numéro Téléphone
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.email)*@ Addresse Email
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateBirthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPatient">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPatient">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPatient">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-outline-dark @prevDisabled">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-outline-dark @nextDisabled">
+        Next
+    </a>
+</div>

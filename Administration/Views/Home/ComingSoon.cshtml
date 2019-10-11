@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Coming Soon";
+    <style>
+        .iconfont {
+            font-size: 70px;
+        }
+
+        .cardCenter {
+            text-align: center;
+            width: 100%;
+        }
+
+        .cardShadow {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        .padding_Construction {
+            padding-top: 240px;
+            padding-bottom: 240px;
+        }
+        .button_Construction{
+            border-radius:25px;
+            padding:10px 35px;
+        }
+        .button_Construction:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    </style>
+}
+    <link href="~/css/Login - Copy.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card cardShadow cardCenter card_background">
+            <div class="card-body padding_Construction">
+                <a class="btn btn-primary button_Construction" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
+                <a class="btn btn-primary button_Construction" href="mailto:ahmeddaoud19@yandex.com">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
